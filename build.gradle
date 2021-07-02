@@ -25,7 +25,9 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
+    implementation("com.aerospike:aerospike-client:5.0.0")
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 
