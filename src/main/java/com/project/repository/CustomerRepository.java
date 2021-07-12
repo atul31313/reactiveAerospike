@@ -16,6 +16,6 @@ public class CustomerRepository {
     }
 
     public Customer fetchRecord(Long customerId) {
-        return reactiveAeroMapper.read(Customer.class, customerId).blockOptional().get();
+        return reactiveAeroMapper.read(Customer.class, customerId).flux().blockFirst();
     }
 }
