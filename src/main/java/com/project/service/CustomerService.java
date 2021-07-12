@@ -2,6 +2,7 @@ package com.project.service;
 
 import com.project.model.Customer;
 import com.project.repository.CustomerRepository;
+import reactor.core.publisher.Mono;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,7 +16,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public Customer getCustomer(Long customerId) {
+    public Mono<Customer> getCustomer(Long customerId) {
         return customerRepository.fetchRecord(customerId);
     }
 }

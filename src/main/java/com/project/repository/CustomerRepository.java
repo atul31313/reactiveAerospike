@@ -2,6 +2,7 @@ package com.project.repository;
 
 import com.aerospike.mapper.tools.ReactiveAeroMapper;
 import com.project.model.Customer;
+import reactor.core.publisher.Mono;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,7 +16,7 @@ public class CustomerRepository {
         this.reactiveAeroMapper = reactiveAeroMapper;
     }
 
-    public Customer fetchRecord(Long customerId) {
-        return reactiveAeroMapper.read(Customer.class, customerId).flux().blockFirst();
+    public Mono<Customer> fetchRecord(Long customerId) {
+        return reactiveAeroMapper.read(Customer.class, customerId);
     }
 }
