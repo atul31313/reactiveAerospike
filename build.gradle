@@ -30,6 +30,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
     implementation 'com.aerospike:aerospike-client-java-reactive:5.0.7'
     implementation 'com.aerospike:java-object-mapper:1.2.1'
+    implementation("io.micronaut.kafka:micronaut-kafka")
 }
 
 

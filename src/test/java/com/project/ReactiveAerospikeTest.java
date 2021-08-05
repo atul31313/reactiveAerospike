@@ -1,5 +1,7 @@
 package com.project;
 
+import com.project.config.CustomerClient;
+import com.project.model.Customer;
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -18,4 +20,9 @@ class ReactiveAerospikeTest {
         Assertions.assertTrue(application.isRunning());
     }
 
+    @Test
+    void shouldPublishToKafkaTopic() {
+        CustomerClient customerClient = application.getApplicationContext().getBean(CustomerClient.class);
+        customerClient.cacheCustomer(new Customer(1L, "Test", "asdf"));
+    }
 }
